@@ -15,12 +15,9 @@ module.exports = {
 			},
 			status: {
 				type: Sequelize.ENUM('active', 'not_voted', 'voted'),
-				defaultValue: 'not_voted',
+				defaultvalue: 'not_voted',
 			},
 			session_id: {
-				type: Sequelize.INTEGER,
-			},
-			voter_id: {
 				type: Sequelize.INTEGER,
 			},
 			created_at: {

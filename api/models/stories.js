@@ -6,7 +6,6 @@ module.exports = (sequelize, DataTypes) => {
 			story_point: DataTypes.INTEGER,
 			status: DataTypes.ENUM('active', 'not_voted', 'voted'),
 			session_id: DataTypes.INTEGER,
-			voter_id: DataTypes.STRING,
 		},
 		{}
 	);
