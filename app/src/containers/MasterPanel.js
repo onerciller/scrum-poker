@@ -6,10 +6,10 @@ import { getSession } from '../actions/session';
 class MasterPanel extends React.Component {
   storyList = stories => {
     if (stories) {
-      return stories.map((story, key) => {
+      return stories.map(story => {
         return (
-          <React.Fragment>
-            <tr key={key}>
+          <React.Fragment key={story.id}>
+            <tr>
               <td>{story.name}</td>
               <td>{story.story_point}</td>
               <td>{story.status}</td>

@@ -12,8 +12,8 @@ export const SESSION_GET_FAILURE = 'SESSION_GET_FAILURE';
 export const createSession = formData => async dispatch => {
   dispatch({ type: SESSION_POST_REQUEST, payload: '' });
   try {
-		const response = await axios.post(`${config.api}/sessions`, formData);
-		window.location.href = `/master-panel/${response.data.id}`;
+    const response = await axios.post(`${config.api}/sessions`, formData);
+    window.location.href = `/master-panel/${response.data.id}`;
     dispatch({ type: SESSION_POST_SUCCESS, payload: response.data });
   } catch (error) {
     dispatch({ type: SESSION_POST_FAILURE, payload: error });
@@ -21,9 +21,9 @@ export const createSession = formData => async dispatch => {
 };
 
 export const getSession = sessionID => async dispatch => {
-	dispatch({ type: SESSION_GET_REQUEST, payload: '' });
+  dispatch({ type: SESSION_GET_REQUEST, payload: '' });
   try {
-		const response = await axios.get(`${config.api}/sessions/${sessionID}`);
+    const response = await axios.get(`${config.api}/sessions/${sessionID}`);
 
     dispatch({ type: SESSION_GET_SUCCESS, payload: response.data });
   } catch (error) {
