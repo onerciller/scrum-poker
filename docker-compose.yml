@@ -1,0 +1,38 @@
+version: '3'
+services:
+  db:
+    image: 'mysql:5.7'    
+    ports:      
+      - "3307:3306"
+    environment:         
+        MYSQL_ROOT_PASSWORD: secret
+        MYSQL_DATABASE: scrum
+        MYSQL_USER: testuser
+        MYSQL_PASSWORD: secret        
+
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - '8000:80'
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./api
+    volumes:
+      - /app/node_modules
+      - ./api:/app
+    environment:           
+      - DB_HOST=db         
+      - PORT=4000    
+  app:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./app
+    volumes:
+      - /app/node_modules
+      - ./app:/app  
+  
+
