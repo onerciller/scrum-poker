@@ -5,9 +5,9 @@
 ### Installation (Docker)
 
 ```console
-$ git clone http://github.com/onerciller/music-app-api    
+
+$ git clone http://github.com/onerciller/scrum-poker
 $ docker-compose up --build
-or 
-$ make build 
+
 Server 8000
 ```
